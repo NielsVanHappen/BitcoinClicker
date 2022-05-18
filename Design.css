@@ -1,0 +1,935 @@
+/* Everything */
+* {
+	font-family: 'Segoe UI';	
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+}
+
+/* HTML tags */
+html {
+	height: 100%;
+}
+
+body {
+	min-height: 100%;
+	margin: 0 0 0 0;
+}
+
+::-webkit-scrollbar {
+  width: 1vw;
+}
+
+::-webkit-scrollbar-track {
+  background: RGB(228,201,111);
+  border-left: 0.1vw solid RGB(0,0,0);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: RGB(158,88,20);
+  border-radius: 20px;
+  border: 0.1vw solid RGB(0,0,0);
+}
+
+button {
+  border: 0px solid transparent;
+  padding: 0px;
+}
+
+button:hover {
+  border: 0px solid transparent;
+  cursor: pointer;
+}
+
+::placeholder {
+    color: RGB(158,88,20);
+    font-weight: normal;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    box-shadow: 0 0 0 1000px RGB(228,201,111) inset;
+    -webkit-box-shadow: 0 0 0 1000px RGB(228,201,111) inset;
+    -webkit-text-fill-color: RGB(158, 88, 20);
+    font-weight: bold;
+}
+
+/* Areas */
+.left {
+    position: absolute;
+    left: 0;
+}
+
+.middle {
+    position: absolute;
+    left: 33.5vw;
+}
+
+.right {
+    position: absolute;
+    right: 0;
+}
+
+.Box {
+    z-index: 1;
+	width: 33%;
+	height: 100vh;
+}
+
+.LSeperator {
+	position: absolute;
+    left: 33vw;
+	width: 0.5%;
+	height: 100vh;
+	box-shadow: 0px 0px 4px 3px rgba(0, 0, 0, 0.8);
+    z-index: 99;
+}
+
+.RSeperator {
+    position: absolute;
+    right: 33vw;
+	width: 0.5%;
+	height: 100vh;
+	box-shadow: 0px 0px 4px 3px rgba(0, 0, 0, 0.8);
+    z-index: 99;
+}
+
+/* General */
+.Inactive {
+    display: none;
+}
+
+/* Tabs */
+.notWorking {
+    cursor: not-allowed !important;
+    box-shadow: none !important;
+}
+
+#SettingsTab {
+    height: 89vh;
+    overflow-y: auto;
+}
+
+.Setting {
+    width: 100%;
+    height: 5vh;
+    margin-top: 1vh;
+}
+
+.SettingText {
+    font-weight: bold;
+    padding-left: 5%;
+    width: fit-content;
+    padding-top: .6vh;
+    font-size: 1vw;
+}
+
+.SettingsButton {
+    height: 4.5vh;
+    margin-right: 1vw;
+    padding: 0 0.5vw;
+    text-align: center;
+    font-weight: bold;
+    font-size: 3vh;
+    border-radius: 1vh;
+}
+
+.SettingsButton:hover {
+    box-shadow: 0px 0px 2px 3px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+}
+
+.SettingSwitch {
+    position: relative;
+    float: right;
+    cursor: pointer;
+    margin-right: 1vw;
+    width: 2.4vw;
+    height: 2.5vh;
+    border: 0.4vw solid RGB(158,88,20);
+    border-radius: 5.6vh;
+    background:RGB(158, 88, 20);
+}
+  
+.SettingSwitch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+.SettingSlider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: RGB(228,201,111);
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 5.6vh;
+}
+  
+.SettingSlider:before {
+    position: absolute;
+    content: "";
+    height: 2vh;
+    width: 1vw;
+    left: .2vw;
+    bottom: .25vh;
+    background-color: RGB(158, 88, 20);
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+    background: RGB(158, 88, 20);
+}
+
+.SelectDrop {
+    position: relative;
+    float: right;
+    margin-right: 1vw;
+    width: 4.4vw;
+    height: 3.5vh;
+    margin-top: .75vh;
+    border: 0.2vw solid RGB(158,88,20);
+    border-radius: 1vh;
+    font-weight: bold;
+    font-size: .7vw;
+}
+
+#wipeConfirmMenu {
+    display: none;
+    z-index: 999;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.WipeActive {
+    display: revert !important;
+}
+
+.WipeBack {
+    z-index: 900;
+    background-color: RGB(0,0,0,.20);
+    width: 100%;
+    height: 100%;
+}
+
+.confirmWipe {
+    z-index: 999;
+    position: absolute;
+    width: 20vw;
+    height: 23vh;
+    top: 38.5vh;
+    left: 39.5vw;
+    border-radius: 1vh;
+    border: 1vh solid RGB(158,88,20);
+}
+
+.wipeText {
+    position: absolute;
+    width: 100%;
+    font-size: 1.7vw;
+    text-align: center;
+    font-weight: bold;
+    top: 2vh;
+}
+
+.wipeButton {
+    margin-right: 1vw;
+    margin-left: 1vw;
+    height: 6vh;
+    width: 8vw;
+    padding: 0px 0.5vw;
+    text-align: center;
+    font-weight: bold;
+    font-size: 3vh;
+    border-radius: 1vh;
+    margin-top: 15vh;
+}
+
+.wipeButText {
+    font-size: 4.3vh;
+}
+
+.wipeButton:hover {
+    box-shadow: 0px 0px 2px 3px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+}
+
+option {
+    font-weight: bold;
+    display: block;
+    white-space: nowrap;
+    border: 0.2vw solid RGB(158,88,20);
+}
+  
+input:checked + .SettingSlider {
+    background-color: RGB(158, 88, 20);
+}
+  
+input:checked + .SettingSlider:before {
+    -webkit-transform: translateX(1vw);
+    -ms-transform: translateX(1vw);
+    transform: translateX(1vw);
+    background: RGB(228,201,111);
+}
+
+.TabsMenu {
+    position: relative;
+	height: 10vh;
+	width: 100%;
+	background-color: RGB(228,201,111);
+	border-bottom: 1vh solid RGB(158,88,20);
+	box-shadow: 0px 1px 4px 3px rgba(0, 0, 0, 0.8);
+}
+
+.TabsButton {
+	width: 32.3333%;
+	height: 100%;
+}
+
+.TabsButtonText {
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.3vw;
+}
+
+.Tab {
+    width: 100%;
+}
+
+.Seperator2 {
+	position: relative;
+	width: 1.5%;
+	height: 100%;
+}
+
+.StatText {
+    margin-top: 5.4%;
+    width: 100%;
+    font-size: 2.5vh;
+    font-weight: bold;
+    text-align: center;
+}
+
+#AchievementsTab {
+    height: 89vh;
+    overflow-y: auto;
+}
+
+.AchievementsContainer {
+    width: 29.8vw;
+    height: 63.4vw;
+    margin: 1.3vw 1.1vw 1.8vw 1.1vw;
+}
+
+.AchievementsItem {
+    border: 0.2vw solid RGB(158,88,20);
+    width: 3.1vw;
+    height: 3.1vw;
+    float: left;
+}
+
+.AchievementsImg {
+    border-top: 0.2vw solid RGB(158,88,20);
+    border-right: 0.4vw solid RGB(158,88,20);
+    border-bottom: 0.2vw solid RGB(158,88,20);
+    border-left: 0.4vw solid RGB(158,88,20);
+    width: 3.1vw;
+    height: 3.1vw;
+    float: left;
+    margin-right: 1vw;
+}
+
+.AchievementImg {
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 90%;
+    height: auto;
+}
+
+#InfoAchL {
+    display: none;
+    position: relative;
+    height: max-content;
+    width: 10vw;
+    background-color: RGB(228,201,111);
+    border: 0.2vw solid RGB(158,88,20);
+    left: -0.2vw;
+    top: 0;
+    text-align: center;
+    padding: 5%;
+    font-size: 1vw;
+}
+
+#InfoAchR {
+    display: none;
+    position: relative;
+    height: max-content;
+    width: 10vw;
+    background-color: RGB(228,201,111);
+    border: 0.2vw solid RGB(158,88,20);
+    left: -7.3vw;
+    top: 0;
+    text-align: center;
+    padding: 5%;
+    font-size: 1vw;
+}
+
+#InfoAchL:hover {
+    display: none !important;
+}
+
+#InfoAchR:hover {
+    display: none !important;
+}
+
+.AchievementsItem:hover #InfoAchR {
+    display: revert;
+}
+
+.AchievementsItem:hover #InfoAchL {
+    display: revert;
+}
+
+.AchievementsImg:hover #InfoAchL {
+    display: revert;
+}
+
+/* Bitcion Button */
+.BtcAmtBox {
+    position: relative;
+    margin-top: 7vh;
+	height: 15%;
+	width: 100%;
+	background-color: RGB(0,0,0,.10);
+	border-top: 0.5vw solid RGB(158,88,20);
+    border-bottom: 0.5vw solid RGB(158,88,20);
+	box-shadow: 0px 0px 4px 3px rgba(0, 0, 0, 0.8);
+}
+
+.BtcAmtText {
+    margin-top: 1vh;
+    text-align: center;
+    font-weight: bold;
+    font-size: 4.5vh;
+}
+
+.BtcPsText {
+    margin-top: 1vh;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.75vw;
+}
+
+.BitcoinPosition {
+    margin-top: 10vh;
+    margin-left: 6.5vw;
+    margin-right: 6.5vw;
+    width: 20vw;
+    height: 20vw;
+}
+
+.MainBitcoin {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    border-radius: 10vw;
+    box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.8);
+}
+
+.MainBitcoin:active {
+    filter: brightness(85%);
+}
+
+/* Shop title */
+.ShopTitle {
+    height: 12vh;
+    text-align: center;
+    font-weight: bold;
+    font-size: 5vh;
+}
+
+/* Shop Parts */
+.ShopPartTitle {
+    position: relative;
+    height: 5vh;
+    vertical-align: middle;
+    box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.8);
+    z-index: 90;
+}
+
+.ShopPartText {
+    padding-top: calc((5vh - 1.2vw)/2);
+    line-height: 1.2vw;
+    text-align: center;
+    font-size: 1.5vw;
+    font-weight: bold;
+}
+
+.MultiText {
+    display: inline;
+    font-size: 1.5vw;
+    font-weight: bold;
+    text-align: left;
+    width: 7vw;
+    cursor: pointer;
+}
+
+/* Upgrades */
+.Upgrades {
+    height: 13.44vw;
+}
+
+.UpgradeBox {
+    width: 6.12vw;
+    height: 6.12vw;
+    border: 0.2vw solid RGB(158,88,20);
+}
+
+.UpgradeBox:hover {
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.8);
+    z-index: 10;
+}
+
+.UpgradeImage {
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 90%;
+    height: auto;
+}
+
+.InfoBox {
+    display: none;
+    position: absolute;
+    top: -0.2vw;
+    width: 10vw;
+    height: 6.12vw;
+    background-color: RGB(0,0,0,.7);
+    color: RGB(228,201,111);
+    border: 0.2vw solid RGB(158,88,20);
+}
+
+.InfoBox:hover {
+    display: none !important;
+}
+
+.UpgradeBox:hover .InfoBox {
+    display: revert;
+}
+
+.InfoUpsText {
+    padding: 3% 5% 0 3%;
+    font-size: 1vw;
+}
+
+.left1 {
+    left: -11vw;
+}
+
+.left2 {
+    left: -17.52vw;
+}
+
+.left3 {
+    left: -24.04vw;
+}
+
+.left4 {
+    left: -30.56vw;
+}
+
+.left5 {
+    left: -37.08vw;
+}
+
+.right1 {
+    right: -37.08vw;
+}
+
+.right2 {
+    right: -30.56vw;
+}
+
+.right3 {
+    right: -24.04vw;
+}
+
+.right4 {
+    right: -17.52vw;
+}
+
+.right5 {
+    right: -11vw;
+}
+
+/* Bitcoin Generators */
+.Items {
+    height: calc(100vh - 22vh - 13.44vw);
+    overflow-y: auto;
+}
+
+.ItemBox {
+    width: 31.2vw;
+    height: 10vh;
+    border-top: 0.2vw solid RGB(158,88,20);
+    border-right: 0.4vw solid RGB(158,88,20);
+    border-bottom: 0.2vw solid RGB(158,88,20);
+    border-left: 0.4vw solid RGB(158,88,20);
+}
+
+.ItemBox:hover {
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.8);
+    z-index: 10;
+}
+
+.Uninteractable {
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: default !important;
+    box-shadow: none !important;
+}
+
+.ItemImg {
+    display: inline-block;
+    align-items: center;
+    vertical-align: middle;
+    height: 10vh;
+    width: 10vh;
+    border-right: 0.4vw solid RGB(158,88,20);
+}
+
+.ShopItemImg {
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 90%;
+    height: auto;
+}
+
+.ItemText {
+    height: 10vh;
+    width: calc(31.2vw - 10vh - .4vw);
+}
+
+.ItemTitle {
+    position: relative;
+    margin-top: 1vh;
+    margin-left: 1.5vh;
+    line-height: 3vh;
+    font-size: 1.5vw;
+    font-weight: bold;
+}
+
+.ItemOwned {
+    position: relative;
+    width: max-content;
+    padding-top: 2vh;
+    margin-right: 1.5vh;
+    line-height: 5.5vh;
+    font-size: 5vh;
+}
+
+.ItemPrice {
+    position: relative;
+    width: max-content;
+    margin-top: 4.5vh;
+    margin-left: 1.5vh;
+    font-size: 1vw;
+    line-height: 2.5vh;
+}
+
+/* Login menu */
+.LoginButton {
+    height: 4.5vh;
+    margin-right: 1vw;
+    margin-top: 1vh;
+    padding: 0 0.5vw;
+    text-align: center;
+    font-weight: bold;
+    font-size: 3vh;
+    border-radius: 1vh;
+}
+
+.LoginButton:hover {
+    box-shadow: 0px 0px 2px 3px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+}
+
+.CloseLogin {
+    position: relative;
+    font-size: 5vh;
+    float: right;
+    font-weight: bold;
+    margin-right: 1vw;
+}
+
+.CloseLogin:hover {
+    cursor: pointer;
+}
+
+.CloseSignup {
+    position: relative;
+    font-size: 5vh;
+    float: right;
+    font-weight: bold;
+    margin-right: 1vw;
+}
+
+.CloseSignup:hover {
+    cursor: pointer;
+}
+
+#LoginSystem {
+    display: none;
+    z-index: 999;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.LoginActive {
+    display: revert !important;
+}
+
+.LoginBack {
+    z-index: 900;
+    background-color: RGB(0,0,0,.20);
+    width: 100%;
+    height: 100%;
+}
+
+.LoginMenu {
+    z-index: 999;
+    position: absolute;
+    width: 25vw;
+    height: 31vh;
+    top: 34.5vh;
+    left: 37.5vw;
+    border-radius: 1vh;
+    border: 1vh solid RGB(158,88,20);
+}
+
+.SignupMenu {
+    z-index: 999;
+    position: absolute;
+    width: 25vw;
+    height: 45vh;
+    top: 27.5vh;
+    left: 37.5vw;
+    border-radius: 1vh;
+    border: 1vh solid RGB(158,88,20);
+}
+
+.LoginMenuText {
+    position: absolute;
+    width: 100%;
+    font-size: 5vh;
+    text-align: center;
+    font-weight: bold;
+}
+
+.InputField {
+    width: 90%;
+    height: 10%;
+    margin-left: 5%;
+    background-color: RGB(228,201,111);
+    border: none;
+    outline: none;
+    border-bottom: .5vh solid RGB(158,88,20);
+    border-radius: .5vh;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    font-size: 3vh;
+    font-weight: bold;
+    color: RGB(158,88,20);
+}
+
+.SigninButton {
+    width: 90%;
+    height: 5vh;
+    margin-left: 5%;
+    background-color: RGB(158,88,20);
+    color: RGB(228,201,111);
+    border: none;
+    outline: none;
+    border-radius: .5vh;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    padding-bottom: 2vh;
+    font-size: 3vh;
+    font-weight: bold;
+}
+
+.SigninButton:hover {
+    box-shadow: 0px 0px 2px 3px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+}
+
+.SwitchLoginText {
+    width: 100%;
+    text-align: center;
+    font-size: 2vh;
+    color: RGB(158,88,20);
+    font-weight: bold;
+}
+
+.Login {
+    text-decoration: underline;
+    font-weight: bolder;
+}
+
+.Login:hover {
+    cursor: pointer;
+}
+
+.Signup {
+    text-decoration: underline;
+    font-weight: bolder;
+}
+
+.Signup:hover {
+    cursor: pointer;
+}
+
+.Signuperror { 
+    position: absolute;
+    z-index: 999;
+    height: fit-content;
+    width: 25%;
+    font-size: 4vh;
+    font-weight: bold;
+    text-align: center;
+    color: RGB(158, 88, 20);
+    padding-right: 1vw;
+    padding-bottom: 1vh;
+    padding-left: 1vw;
+    border: 1vh solid RGB(158, 88, 20);
+    border-radius: 1vh;
+    bottom: 2vw;
+    margin: 0 36%;
+    background-color: RGB(228,201,111);
+}
+
+.loggedin {
+    z-index: 999;
+    position: absolute;
+    text-align: center;
+    font-size: 5vh;
+    font-weight: bold;
+    width: 100%;
+}
+
+.LogoutMenu {
+    z-index: 999;
+    position: absolute;
+    width: 20vw;
+    height: 23vh;
+    top: 38.5vh;
+    left: 39.5vw;
+    border-radius: 1vh;
+    border: 1vh solid RGB(158,88,20);
+}
+
+.LogoutText {
+    position: absolute;
+    width: 100%;
+    font-size: 1.7vw;
+    text-align: center;
+    font-weight: bold;
+    top: 2vh;
+}
+
+.LogoutButton {
+    margin-right: 1vw;
+    margin-left: 1vw;
+    height: 6vh;
+    width: 8vw;
+    padding: 0px 0.5vw;
+    text-align: center;
+    font-weight: bold;
+    font-size: 3vh;
+    border-radius: 1vh;
+    margin-top: 15vh;
+}
+
+.LogoutButText {
+    font-size: 4.3vh;
+}
+
+.LogoutButton:hover {
+    box-shadow: 0px 0px 2px 3px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+}
+
+.LogoutBack {
+    z-index: 900;
+    background-color: RGB(0,0,0,.20);
+    width: 100%;
+    height: 100%;
+}
+
+#LogoutSystem {
+    display: none;
+    z-index: 999;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.LogoutActive {
+    display: revert !important;
+}
+
+/* Borders */
+.tb {
+    border-top: 0.4vw solid RGB(158,88,20);
+}
+
+.rb {
+    border-right: 0.4vw solid RGB(158,88,20);
+}
+
+.bb {
+    border-bottom: 0.4vw solid RGB(158,88,20);
+}
+
+.lb {
+    border-left: 0.4vw solid RGB(158,88,20);
+}
+
+/* Colors */
+.br {
+ 	background-color: RGB(158,88,20);
+ 	color: RGB(228,201,111);
+}
+
+.y {
+	background-color: RGB(228,201,111);
+	color: RGB(158,88,20);
+}
+
+/* Floats */
+.l {
+	float: left;
+}
+
+.r {
+	float: right;
+}
